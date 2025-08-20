@@ -46,13 +46,28 @@ class Calculator:
         for i, row in enumerate(buttons):
             for j, button in enumerate(row):
                 if button == '0':
-
                     btn = tk.Button(
                         self.root,
                         text=button,
                         command=lambda b=button: self.button_click(b)
                     )
                     btn.grid(row=i + 1, column=j, columnspan = 2, sticky='ew', padx=2, pady=2)
+                
+                elif button == '.':
+                    btn = tk.Button(
+                        self.root,
+                        text=button,
+                        command=lambda b=button: self.button_click(b)
+                        )
+                    btn.grid(row=i + 1, column=2, sticky='ew', padx=2, pady=2)
+
+                elif button == '=':
+                    btn = tk.Button(
+                        self.root,
+                        text=button,
+                        command=lambda b=button: self.button_click(b)
+                        )
+                    btn.grid(row=i + 1, column=3, sticky='ew', padx=2, pady=2)
 
                 else:
                     btn = tk.Button(
@@ -61,7 +76,6 @@ class Calculator:
                         command=lambda b=button: self.button_click(b)
                     )
                     btn.grid(row=i + 1, column=j, sticky='ew', padx=2, pady=2)
-
 
         for i in range(4):
             self.root.grid_columnconfigure(i, weight=1)
